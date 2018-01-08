@@ -1,0 +1,27 @@
+{
+  "name": "chinabt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "videojs": "^1.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-postcss": "^7.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "pump": "^1.0.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Minhua",
+  "license": "ISC",
+  "browserslist": [
+    "last 4 versions"
+  ]
+}
