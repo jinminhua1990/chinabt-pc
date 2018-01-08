@@ -63,13 +63,13 @@ a {
   }
 }
 
-@each $title in cbby,jypt,cwjy,hqtb,qkcx,qbgj,mtzx,ltqz,sjks,zcfb,wkxg,lhjy,zsjd {
+@each $title in cbby, jypt, cwjy, hqtb, qkcx, qbgj, mtzx, ltqz, sjks, zcfb, wkxg, lhjy, zsjd {
   .#{$title}-icon {
     background-image: url(#{$img-root}#{$title}.png) !important;
   }
 }
 
-.no-content{
+.no-content {
   text-align: center;
   padding: 30px 0;
 }
@@ -228,6 +228,7 @@ a {
       top: -10px;
       width: 100%;
       background: #fff;
+      outline: 1px solid #eaeaea;
       @include dropdown();
     }
     .d-item {
@@ -322,5 +323,24 @@ a {
     margin-top: 9px;
     @extend .text-justify;
     @include clamp($font, 2);
+  }
+}
+
+.aside {
+  $w: 60px;
+  width: $w;
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+
+  .go-top {
+    width: 100%;
+    height: $w;
+    border-radius: 100%;
+    @include icon(go_top);
+    background-color: #eaeaea;
+    &:hover{
+      background-color: #7a98f7;
+    }
   }
 }
