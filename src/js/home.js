@@ -144,7 +144,7 @@ doT.templateSettings = {
     (function () {
         var wrap = $('#promotion');
         var temp = {
-            item: '<li class="item"><a class="link" href="@@=it.title$$" target="_blank">@@=it.title$$</a></li>'
+            item: '<li class="item"><a class="link" href="@@=it.url$$" target="_blank">@@=it.title$$</a></li>'
         };
         var listWrap = wrap.find('[data-type="list"]');
 

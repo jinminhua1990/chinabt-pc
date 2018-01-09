@@ -7,7 +7,7 @@ var postCss = require('gulp-postcss');
 //var rename = require('gulp-rename');
 //var concat = require('gulp-concat');
 
-gulp.task('css', function () {
+gulp.task('sass', function () {
     var postCssPlugins = [
         autoPrefixer()
     ];
@@ -32,5 +32,5 @@ gulp.task('js', function (cb) {
 });
 
 gulp.task('default', function () {
-    gulp.watch('src/css/*', ['css']);
+    gulp.watch('src/css/*', ['sass']);
 });
