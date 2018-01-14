@@ -1,0 +1,289 @@
+@import "_normalize";
+$theme: #7a98f7;
+$color: #444;
+$sub-color: #999ea5;
+$img-root: '../image/';
+$page-w: 1192px;
+
+body {
+  background: #f2f2f2;
+  color: $color;
+  line-height: 1.5;
+}
+
+ul:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+a {
+  display: inline-block;
+  line-height: inherit;
+  color: inherit;
+}
+
+.w-wrap {
+  width: $page-w;
+  min-height:100vh;
+  margin: 0 auto;
+
+  &:after{
+    content:'';
+    display: block;
+    clear: both;
+  }
+}
+
+.text-justify {
+  text-align: justify;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+@mixin clamp($font-size, $line: 1) {
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 1.5 * $line * $font-size;
+}
+
+@mixin icon($img,$pos:center,$indent:-100em) {
+  text-indent: $indent;
+  overflow: hidden;
+  background: url(#{$img-root}#{$img}.png) $pos center no-repeat;
+}
+
+@mixin dropdown() {
+  height: 0;
+  outline-width: 0;
+  opacity: 0;
+  transition: all .2s ease;
+  overflow: hidden;
+
+  &.show {
+    height: auto;
+    outline-width: 1px;
+    opacity: 1;
+  }
+}
+
+.no-content {
+  text-align: center;
+  padding: 30px 0;
+}
+
+//顶栏，搜索，热点
+.top-bar {
+  $h: 56px;
+  height: $h;
+  font-size: 12px;
+  background: #1e2631;
+
+  .logo {
+    float: left;
+    width: 85px;
+    height: $h;
+    @include icon(logo);
+  }
+  .hot-news {
+    margin: 0 auto;
+    width: 600px;
+    height: $h;
+    line-height: $h;
+    color: #b9b9b9;
+
+    .h-head {
+      float: left;
+    }
+
+    .h-title {
+      display: inline-block;
+      vertical-align: text-bottom;
+      line-height: 17px;
+      height: 17px;
+      width: 60px;
+      @include icon(hot_news);
+    }
+
+    .h-body {
+      margin-left: 70px;
+      position: relative;
+    }
+    .h-list-more {
+      position: absolute;
+      top: $h - 10;
+      left: 0;
+      right: 0;
+      outline: 1px solid #eaeaea;
+      background: #fff;
+      color: $color;
+      line-height: normal;
+      @include dropdown;
+
+      .h-item {
+        line-height: 28px;
+      }
+    }
+    .h-list {
+      float: left;
+    }
+
+    .h-item {
+      float: left;
+      text-align: left;
+      margin: 0 14px;
+    }
+
+    .h-link {
+      display: inline-block;
+      line-height: 1.2;
+
+      &:hover {
+        text-decoration: underline;
+        color: #e53031;
+      }
+    }
+
+    .i-down {
+      float: left;
+      width: 16px;
+      margin-left: 40px;
+      cursor: pointer;
+      @include icon(i_down);
+      transition: tranform .2s ease;
+
+      &.active {
+        transform: rotate(-180deg);
+      }
+    }
+  }
+}
+
+//顶部导航
+.top-nav {
+  $h: 56px;
+  height: $h;
+  font-size: 16px;
+  background: #fff;
+  box-shadow: 0 1px 1px #eaeaea;
+
+  .active {
+    background: $theme;
+    color: #fff;
+  }
+
+  //左侧
+  .sup-links {
+    float: left;
+
+    .s-item {
+      float: left;
+      line-height: $h;
+    }
+    .s-link {
+      padding: 0 20px;
+
+      &:hover {
+        @extend .active;
+      }
+    }
+
+  }
+
+  //右侧
+  .sub-links {
+    float: right;
+    text-align: center;
+    width: 100px;
+    margin-right: 20px;
+
+    .d-head {
+      line-height: $h;
+    }
+    .d-title {
+      cursor: pointer;
+      &.active {
+        background: none;
+        color: inherit;
+        .i-down {
+          transform: rotate(-180deg);
+        }
+      }
+    }
+    .i-down {
+      float: right;
+      width: 16px;
+      cursor: pointer;
+      @include icon(i_down);
+      transition: tranform .2s ease;
+    }
+
+    .d-body {
+      position: relative;
+    }
+    .d-list {
+      position: absolute;
+      top: -10px;
+      width: 100%;
+      background: #fff;
+      outline: 1px solid #eaeaea;
+      @include dropdown();
+    }
+    .d-item {
+      font-size: 12px;
+      line-height: 30px;
+      a {
+        width: 100%;
+      }
+      a:hover {
+        @extend .active;
+      }
+    }
+  }
+}
+
+//推广
+.promotion {
+  font-size: 12px;
+  height: 16px;
+  line-height: 16px;
+  margin: 10px 0;
+
+  .head {
+    float: left;
+    width: 43px;
+    border-right: 1px solid $sub-color;
+    @include icon(promotion);
+  }
+
+  .body {
+    margin-left: 44px;
+    height: 16px;
+    overflow: hidden;
+  }
+  .item {
+    width: 33%;
+    float: left;
+    font-size: 12px;
+    color: $sub-color;
+    text-align: center;
+  }
+}
+
+//footer
+.footer{
+  background: #1e2631;
+  padding: 80px 0;
+  margin-top: 30px;
+  text-align: center;
+  color:$sub-color;
+  font-size: 12px;
+
+  .cont{
+    display: inline-block;
+    margin: 0 auto;
+  }
+}

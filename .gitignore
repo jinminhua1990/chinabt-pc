@@ -3,3 +3,4 @@ node_modules/*
 *.psd
 *.xml
 *.iml
+.DS_Store

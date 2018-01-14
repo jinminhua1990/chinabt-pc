@@ -4,9 +4,14 @@ var sass = require('gulp-sass');
 var pump = require('pump');
 var autoPrefixer = require('autoprefixer');
 var postCss = require('gulp-postcss');
-//var rename = require('gulp-rename');
-//var concat = require('gulp-concat');
+var concat = require('gulp-concat');
 
+//公用依赖
+var common = ['lib/jquery.min.js', 'lib/doT.min.js', 'src/js/base.js'];
+
+var jsTasks = ['home', 'article'];
+
+//SASS 编译为 CSS，并后处理和压缩
 gulp.task('sass', function () {
     var postCssPlugins = [
         autoPrefixer()
@@ -19,18 +24,24 @@ gulp.task('sass', function () {
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('js', function (cb) {
-    pump([
-            gulp.src('src/js/*'),
-            //concat('main.js'),
-            uglify(),
-            //rename({suffix: '-min'}),
-            gulp.dest('dist')
-        ],
-        cb
-    );
+//各页面JS 合并压缩
+jsTasks.forEach(function (pageName) {
+    gulp.task(pageName, function (cb) {
+        pump([
+                gulp.src(common.concat('src/js/' + pageName + '.js')),
+                concat(pageName + '.js'),
+                uglify(),
+                gulp.dest('dist')
+            ],
+            cb
+        );
+    });
 });
 
+//默认任务 => SASS 编译
 gulp.task('default', function () {
     gulp.watch('src/css/*', ['sass']);
 });
+
+//各页面 JS 构建为生产版本
+gulp.task('dist', jsTasks.concat('sass'));
