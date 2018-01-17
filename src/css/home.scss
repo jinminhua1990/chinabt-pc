@@ -60,22 +60,3 @@
     @include clamp($font, 2);
   }
 }
-
-.aside {
-  $w: 60px;
-  width: $w;
-  position: fixed;
-  right: 24px;
-  bottom: 24px;
-
-  .go-top {
-    width: 100%;
-    height: $w;
-    border-radius: 100%;
-    @include icon(go_top);
-    background-color: #eaeaea;
-    &:hover{
-      background-color: #7a98f7;
-    }
-  }
-}
