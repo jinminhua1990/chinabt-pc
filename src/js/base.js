@@ -19,7 +19,7 @@
     var util = {
         get: function (cfg) {
             $.ajax({
-                url: origin + '/block/' + cfg.key,
+                url: origin + '/' + cfg.key,
                 dataType: 'jsonp',
                 xhrFields: {
                     withCredentials: true
@@ -29,6 +29,28 @@
                     cfg.success(res);
                 }
             });
+        },
+        howLongAgo: function (inputTime, hours) {
+            var current = Math.floor(Date.now() / 1000);
+            var _input = new Date(inputTime * 1000);
+            var _diff = current - inputTime;
+            var h;
+            hours = hours || 24;
+
+            if (_diff > 0 && _diff < hours * 3600) {
+                h = Math.floor(_diff / 3600);
+                if (h) {
+                    return h + '小时前';
+                }
+                else {
+                    return Math.floor(_diff / 60) + '分钟前';
+                }
+            }
+            else {
+                return [_input.getFullYear(), _input.getMonth() + 1, _input.getDate()].join('-') +
+                    ' ' +
+                    [_input.getHours(), _input.getMinutes()].join(':');
+            }
         },
         eventDelegator: $({})
     };

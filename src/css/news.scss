@@ -1,0 +1,121 @@
+@import "_base";
+
+$gutter-h: 40px;
+$gutter-v: 16px;
+$border-color: #eaeaea;
+
+.page-col-left {
+  //float: left;
+  width: 834px;
+  margin: 0 auto;
+}
+
+.feed {
+  $img-w: 262px;
+  $card-h: 160px;
+
+  padding:16px 24px;
+  background: #fff;
+
+  .feed-list{
+
+  }
+
+  .feed-card {
+    padding: 16px 0;
+
+    border-bottom: 1px solid $border-color;
+
+    &:last-child{
+      border-bottom: none;
+    }
+
+    &:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    .img {
+      float: left;
+      width: $img-w;
+      height: $card-h;
+      overflow: hidden;
+
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        transition: transform .2s ease;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+
+    .txt {
+      margin-left: $img-w + 24;
+      height: $card-h;
+      position: relative;
+    }
+
+    .title {
+      font-size: 22px;
+      @include clamp(22, 2);
+
+      a:hover {
+        color: $theme;
+      }
+    }
+
+    .desc {
+      margin-top: 12px;
+      font-size: 14px;
+      color: $sub-color;
+      @include clamp(14, 1);
+    }
+
+    .info {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      font-size: 14px;
+    }
+
+    .author, .time {
+      display: inline-block;
+      color: $sub-color;
+    }
+    .author:after {
+      display: inline-block;
+      content: '/';
+      color: inherit;
+      font-size: inherit;
+      margin: 0 .5em;
+    }
+  }
+
+  .feed-foot{
+    .loader{
+      display: block;
+      height: 48px;
+      line-height: 48px;
+      text-align: center;
+      background: #f3f3f3;
+
+      &:hover{
+        color:$theme;
+      }
+      &.disabled{
+        color:$sub-color;
+        &:hover{
+          cursor: default;
+          color:$sub-color;
+        }
+      }
+    }
+  }
+
+}

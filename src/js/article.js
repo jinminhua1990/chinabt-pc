@@ -1,1 +1,1 @@
-(function ($, exports) {})()(jQuery, window);
+(function ($, exports) {})(jQuery, window);

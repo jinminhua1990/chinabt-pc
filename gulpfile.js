@@ -9,7 +9,7 @@ var concat = require('gulp-concat');
 //公用依赖
 var common = ['lib/jquery.min.js', 'lib/doT.min.js', 'src/js/base.js'];
 
-var jsTasks = ['home', 'article'];
+var jsTasks = ['home', 'article', 'news'];
 
 //SASS 编译为 CSS，并后处理和压缩
 gulp.task('sass', function () {
