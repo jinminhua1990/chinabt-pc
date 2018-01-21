@@ -48,22 +48,10 @@ $gutter-v: 16px;
   padding-bottom: $gutter-v;
   border-bottom: 1px solid #f2f2f2;
 
-  .img_wrapper {
-    text-align: center;
+  img {
+    display: block;
     margin: 1em auto;
     width: 60%;
-
-    img {
-      width: 100%
-    }
-
-    .img_descr {
-      display: block;
-      text-align: center;
-      font-size: 14px;
-      line-height: 1.2;
-      color: #333
-    }
   }
 
   .article-text {
