@@ -40,17 +40,25 @@
     padding: 20px 14px 12px;
     &:hover {
       background: #f9f9f9;
+
+      .c-title {
+        color: $theme;
+      }
     }
   }
 
   .c-pic {
-    width: 26px;
-    height: 26px;
-    vertical-align: middle;
-    margin-right: 12px;
+    float: left;
+    width: 24px;
+    height: 24px;
   }
   .c-title {
-    color: #4ed29c;
+    color: #000;
+    display: block;
+    margin-left: 36px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
   .c-desc {
     $font: 12px;
